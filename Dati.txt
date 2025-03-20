@@ -1,3 +1,5 @@
 1|Giovanni|12
 1|Franco|23
 1|Francesco|50
+2|Giovanni|44
+3|Angelo|44

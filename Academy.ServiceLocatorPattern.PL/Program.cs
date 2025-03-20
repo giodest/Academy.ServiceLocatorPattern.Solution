@@ -8,14 +8,7 @@ namespace Academy.ServiceLocatorPattern.PL
     internal class Program
     {
         static void Main(string[] args)
-        {
-
-            /*var persona = new Persona()
-            {
-                Id = 1,
-                Nome = "Giovanni",
-                Eta = 26
-            };*/
+        {                       
 
             var dataService = GetServiceProvider();
             int currentId = dataService.GetLastIdFromFile();
