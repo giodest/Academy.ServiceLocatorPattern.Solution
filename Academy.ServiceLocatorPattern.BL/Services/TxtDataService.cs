@@ -12,7 +12,7 @@ namespace Academy.ServiceLocatorPattern.BL.Services
     {
         private readonly string _filePath = @"C:\Users\destr\source\repos\Academy.ServiceLocatorPattern.Solution\Dati.txt";
 
-        public int GetLastIdFromFile()
+        public int GetLastId()
         {
             return GetLastIdFromFile(_filePath);
         }

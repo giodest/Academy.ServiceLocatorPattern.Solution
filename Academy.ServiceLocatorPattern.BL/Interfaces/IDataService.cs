@@ -11,7 +11,7 @@ namespace Academy.ServiceLocatorPattern.BL.Interfaces
     {
         public Persona GetData(int id);
         public void SaveData(Persona persona);
-        int GetLastIdFromFile();
+        int GetLastId();
 
     }
 }
