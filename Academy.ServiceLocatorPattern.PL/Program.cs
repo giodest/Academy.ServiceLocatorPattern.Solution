@@ -11,7 +11,7 @@ namespace Academy.ServiceLocatorPattern.PL
         {                       
 
             var dataService = GetServiceProvider();
-            int currentId = dataService.GetLastIdFromFile();
+            int currentId = dataService.GetLastId();
 
             Console.WriteLine("Inserisci Nome:");
             var nome = Console.ReadLine();

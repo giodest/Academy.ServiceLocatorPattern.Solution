@@ -36,7 +36,7 @@ namespace Academy.ServiceLocatorPattern.BL.Services
             }
 
 
-        public int GetLastIdFromFile()
+        public int GetLastId()
         {
             return GetLastIdFromFile(_filePath);
         }
