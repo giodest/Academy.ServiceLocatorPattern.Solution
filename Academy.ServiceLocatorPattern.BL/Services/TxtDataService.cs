@@ -17,7 +17,6 @@ namespace Academy.ServiceLocatorPattern.BL.Services
             return GetLastIdFromFile(_filePath);
         }
 
-        // Metodo per ottenere l'ultimo ID dal file con il parametro filePath
         public int GetLastIdFromFile(string filePath)
         {
             if (File.Exists(filePath))
@@ -26,11 +25,11 @@ namespace Academy.ServiceLocatorPattern.BL.Services
                 if (lines.Length > 0)
                 {
                     var lastLine = lines.Last();
-                    var lastId = int.Parse(lastLine.Split('|')[0]);  // ID prima della prima '|' nella riga
-                    return lastId + 1;  // Incrementa l'ID
+                    var lastId = int.Parse(lastLine.Split('|')[0]);
+                    return lastId + 1;
                 }
             }
-            return 1;  // Se il file è vuoto, inizia con 1
+            return 1;
         }
 
         public Persona GetData(int id)
