@@ -11,7 +11,12 @@ namespace Academy.ServiceLocatorPattern.BL.Entities
         public int Id { get; set; }
         public string Nome { get; set; }
         public int Eta { get; set; }
-        
 
+        public Persona(int id, string nome, int eta)
+        {
+            Id = id;
+            Nome = nome;
+            Eta = eta;
+        }
     }
 }
