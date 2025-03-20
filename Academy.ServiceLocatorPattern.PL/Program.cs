@@ -8,23 +8,23 @@ namespace Academy.ServiceLocatorPattern.PL
     internal class Program
     {
         static void Main(string[] args)
-        {
-
-            var persona = new Persona()
-            {
-                Id = 1,
-                Nome = "Giovanni",
-                Eta = 26
-            };
-
-
+        {                       
 
             var dataService = GetServiceProvider();
+            int currentId = dataService.GetLastIdFromFile();
+
+            Console.WriteLine("Inserisci Nome:");
+            var nome = Console.ReadLine();
+            Console.WriteLine("Inserisci Età:");
+            var eta = int.Parse(Console.ReadLine());
+            var persona = new Persona(currentId, nome, eta);
+
+
 
             dataService.SaveData(persona);
             Console.WriteLine("Dati salvati con successo");
 
-            var personaRecuperato = dataService.GetData(1);
+            var personaRecuperato = dataService.GetData(currentId);
 
             if(personaRecuperato != null)
             {
@@ -39,7 +39,7 @@ namespace Academy.ServiceLocatorPattern.PL
 
         private static IDataService GetServiceProvider() 
         {
-            return new JsonDataService();
+            return new TxtDataService();
         }
     }
 }

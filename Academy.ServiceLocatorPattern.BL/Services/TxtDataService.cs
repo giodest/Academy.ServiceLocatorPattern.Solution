@@ -11,6 +11,28 @@ namespace Academy.ServiceLocatorPattern.BL.Services
     public class TxtDataService : IDataService
     {
         private readonly string _filePath = @"C:\Users\destr\source\repos\Academy.ServiceLocatorPattern.Solution\Dati.txt";
+
+        public int GetLastIdFromFile()
+        {
+            return GetLastIdFromFile(_filePath);
+        }
+
+        // Metodo per ottenere l'ultimo ID dal file con il parametro filePath
+        public int GetLastIdFromFile(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                var lines = File.ReadLines(filePath).ToArray();
+                if (lines.Length > 0)
+                {
+                    var lastLine = lines.Last();
+                    var lastId = int.Parse(lastLine.Split('|')[0]);  // ID prima della prima '|' nella riga
+                    return lastId + 1;  // Incrementa l'ID
+                }
+            }
+            return 1;  // Se il file è vuoto, inizia con 1
+        }
+
         public Persona GetData(int id)
         {
             Persona rc = null;
@@ -23,12 +45,7 @@ namespace Academy.ServiceLocatorPattern.BL.Services
                     var parts = line.Split('|');
                     if (parts.Length == 3 && int.Parse(parts[0]) == id)
                     {
-                        rc = new Persona
-                        {
-                            Id = int.Parse(parts[0]),
-                            Nome = parts[1],
-                            Eta = int.Parse(parts[2])
-                        };
+                        rc = new Persona(int.Parse(parts[0]), parts[1], int.Parse(parts[2]));                        
                     }
                 }
             }
