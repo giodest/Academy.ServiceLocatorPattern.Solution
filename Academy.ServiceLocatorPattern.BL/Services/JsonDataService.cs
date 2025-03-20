@@ -11,7 +11,7 @@ namespace Academy.ServiceLocatorPattern.BL.Services
 {    
         public class JsonDataService : IDataService
         {
-            private readonly string _filePath = @"C:\Users\destr\source\repos\Academy.ServiceLocatorPattern.Solution";
+            private readonly string _filePath = @"C:\Users\destr\source\repos\Academy.ServiceLocatorPattern.Solution\Dati.txt";
             public Persona GetData(int id)
             {
                 if (!File.Exists(_filePath)) return null;
