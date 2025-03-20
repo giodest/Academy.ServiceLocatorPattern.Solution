@@ -39,7 +39,7 @@ namespace Academy.ServiceLocatorPattern.PL
 
         private static IDataService GetServiceProvider() 
         {
-            return new TxtDataService();
+            return new JsonDataService();
         }
     }
 }
