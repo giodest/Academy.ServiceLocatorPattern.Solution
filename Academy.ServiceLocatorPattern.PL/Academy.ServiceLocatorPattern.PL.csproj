@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Academy.ServiceLocatorPattern.BL\Academy.ServiceLocatorPattern.BL.csproj" />
+  </ItemGroup>
+
 </Project>
