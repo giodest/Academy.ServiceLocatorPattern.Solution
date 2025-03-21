@@ -3,5 +3,10 @@
     "Id": 1,
     "Nome": "Giovanni",
     "Eta": 22
+  },
+  {
+    "Id": 2,
+    "Nome": "Giovanni",
+    "Eta": 24
   }
 ]
