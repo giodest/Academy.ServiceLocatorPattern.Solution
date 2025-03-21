@@ -13,7 +13,7 @@ namespace Academy.ServiceLocatorPattern.PL
 
             //var dataService = GetServiceProvider();
 
-            DataManager manager = new DataManager("txt");
+            DataManager manager = new DataManager("json");
             int currentId = manager.GetId();
 
             Console.WriteLine("Inserisci Nome:");
