@@ -3,6 +3,7 @@ using Academy.ServiceLocatorPattern.BL.Services;
 using Academy.ServiceLocatorPattern.BL.Entities;
 using Academy.ServiceLocatorPattern.BL.Interfaces;
 using Academy.ServiceLocatorPattern.BL.Manager;
+using Academy.ServiceLocatorPattern.BL.DIContainer;
 
 namespace Academy.ServiceLocatorPattern.PL
 {
@@ -11,9 +12,7 @@ namespace Academy.ServiceLocatorPattern.PL
         static void Main(string[] args)
         {
 
-            //var dataService = GetServiceProvider();
-            IDataService jsonDataService = new JsonDataService();
-            DataManager manager = new DataManager(jsonDataService); 
+            DataManager manager = DIContainer.GetDataManager();
             int currentId = manager.GetId();
 
             Console.WriteLine("Inserisci Nome:");
