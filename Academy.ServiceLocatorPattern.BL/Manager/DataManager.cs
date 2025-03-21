@@ -1,5 +1,4 @@
 ﻿using Academy.ServiceLocatorPattern.BL.Interfaces;
-using Academy.ServiceLocatorPattern.BL.Factory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +12,9 @@ namespace Academy.ServiceLocatorPattern.BL.Manager
     {
         private readonly IDataService _dataService;
 
-        public DataManager (string serviceType)
+        public DataManager (IDataService dataService)
         {
-            _dataService = DataServiceFactory.GetService(serviceType);
+            _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
         }
 
         public void Saving(Persona persona)

@@ -12,8 +12,8 @@ namespace Academy.ServiceLocatorPattern.PL
         {
 
             //var dataService = GetServiceProvider();
-
-            DataManager manager = new DataManager("json");
+            IDataService jsonDataService = new JsonDataService();
+            DataManager manager = new DataManager(jsonDataService); 
             int currentId = manager.GetId();
 
             Console.WriteLine("Inserisci Nome:");
