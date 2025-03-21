@@ -19,7 +19,6 @@ namespace Academy.ServiceLocatorPattern.BL.Services
 
         public int GetLastIdFromFile(string filePath)
         {
-            int rc = 1;
             if (File.Exists(filePath))
             {
                 var lines = File.ReadLines(filePath).ToArray();
@@ -27,10 +26,10 @@ namespace Academy.ServiceLocatorPattern.BL.Services
                 {
                     var lastLine = lines.Last();
                     var lastId = int.Parse(lastLine.Split('|')[0]);
-                    rc =  lastId + 1;
+                    return lastId + 1;
                 }
             }
-            return rc;
+            return 1;
         }
 
         public Persona GetData(int id)

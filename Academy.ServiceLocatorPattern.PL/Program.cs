@@ -2,16 +2,19 @@
 using Academy.ServiceLocatorPattern.BL.Services;
 using Academy.ServiceLocatorPattern.BL.Entities;
 using Academy.ServiceLocatorPattern.BL.Interfaces;
+using Academy.ServiceLocatorPattern.BL.Manager;
 
 namespace Academy.ServiceLocatorPattern.PL
 {
     internal class Program
     {
         static void Main(string[] args)
-        {                       
+        {
 
-            var dataService = GetServiceProvider();
-            int currentId = dataService.GetLastId();
+            //var dataService = GetServiceProvider();
+
+            DataManager manager = new DataManager("txt");
+            int currentId = manager.GetId();
 
             Console.WriteLine("Inserisci Nome:");
             var nome = Console.ReadLine();
@@ -21,10 +24,10 @@ namespace Academy.ServiceLocatorPattern.PL
 
 
 
-            dataService.SaveData(persona);
+            manager.Saving(persona);
             Console.WriteLine("Dati salvati con successo");
 
-            var personaRecuperato = dataService.GetData(currentId);
+            var personaRecuperato = manager.GetInformations(currentId);
 
             if(personaRecuperato != null)
             {
@@ -35,11 +38,6 @@ namespace Academy.ServiceLocatorPattern.PL
                 Console.WriteLine("La persona non è stata trovata");
             }
 
-        }
-
-        private static IDataService GetServiceProvider() 
-        {
-            return new TxtDataService();
-        }
+        }        
     }
 }
