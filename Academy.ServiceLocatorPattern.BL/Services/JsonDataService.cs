@@ -23,17 +23,17 @@ namespace Academy.ServiceLocatorPattern.BL.Services
                 return persons.FirstOrDefault(p => p.Id == id);
             }
 
-            public void SaveData(Persona persona)
+        public void SaveData(Persona persona)
             {
-                var persons = File.Exists(_filePath)
-                 ? JsonConvert.DeserializeObject<Persona[]>(File.ReadAllText(_filePath))
-                 : Array.Empty<Persona>();
+             var persons = File.Exists(_filePath)
+                ? JsonConvert.DeserializeObject<Persona[]>(File.ReadAllText(_filePath)) ?? Array.Empty<Persona>()
+                : Array.Empty<Persona>();
 
-                var list = persons.ToList();
-                list.Add(persona);
+            var list = persons.ToList();
+            list.Add(persona);
 
-                string json = JsonConvert.SerializeObject(list.ToArray(), Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText(_filePath, json);
+            string json = JsonConvert.SerializeObject(list.ToArray(), Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(_filePath, json);
             }
 
 
