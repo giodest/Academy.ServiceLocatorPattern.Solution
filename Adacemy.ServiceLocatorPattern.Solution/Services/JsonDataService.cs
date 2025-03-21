@@ -11,7 +11,6 @@ namespace Academy.ServiceLocatorPattern.BL.Services
 {    
         public class JsonDataService : IDataService
         {
-
             private readonly string _filePath = @"C:\Users\destr\source\repos\Academy.ServiceLocatorPattern.Solution\Dati.json";
                 
         public Persona GetData(int id)
@@ -44,9 +43,8 @@ namespace Academy.ServiceLocatorPattern.BL.Services
 
         public int GetLastIdFromFile(string _filePath)
         {
-            int rc = 1;
             if (File.Exists(_filePath))
-            {                
+            {
                 var jsonContent = File.ReadAllText(_filePath);
 
                 var persone = JsonConvert.DeserializeObject<List<Persona>>(jsonContent);
@@ -54,10 +52,11 @@ namespace Academy.ServiceLocatorPattern.BL.Services
                 if (persone != null && persone.Count > 0)
                 {
                     var lastPerson = persone.Last();
-                    rc = lastPerson.Id + 1;
+                    return lastPerson.Id + 1;
                 }
             }
-            return rc;
+
+            return 1;
         }
     }
     
